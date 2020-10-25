@@ -36,17 +36,6 @@
 	
 	function doMath(value)
 	{
-		console.log('doMath()');
-		console.log('BEFORE',{
-			digit,
-			digits,
-			value,
-			values,
-			operator,
-			answer,
-			query: query.innerHTML,
-			ans: ans.innerHTML,
-		});
 		if (value!='+' && value!='-' && value!='=' && value!='*' && value!='/' && value!='C')
 		{
 			//making the number such as 542 etc 
@@ -61,33 +50,27 @@
 		}
 		if (value=='+' || value=='-' || value=='*' || value=='/')
 		{
-			// debugger;
 			//pushing in array digits
 			if (values=='' && (value=='+' || value=='-'))
 			{
 				digit=digit+value;
-				// debugger;
 			}
 			else if (values=='' && (value=='/' || value=='*')) 
 			{
 				value='';
-				// debugger;
 			}
 			else
 			{
-				// debugger;
 				if (operator=='')
 				{
 					digits.push(digit);
 					operator=value;
 					digit='';
-					// debugger;
 				}
 				//if operator is already there
 				else
 				{
 					value='';
-					// debugger;
 				}
 			}
 		}
@@ -120,16 +103,6 @@
 			operator='';
 			digits=[];
 		}
-		console.log('AFTER',{
-			digit,
-			digits,
-			value,
-			values,
-			operator,
-			answer,
-			query: query.innerHTML,
-			ans: ans.innerHTML,
-		});
 	}
 	
 	
@@ -159,57 +132,15 @@
 
 	function insertBracket(bracket)
 	{
-
-		console.log({
-			digit,
-			digits,
-			value,
-			values,
-			operator,
-			answer,
-			query: query.innerHTML,
-			ans: ans.innerHTML,
-		});
-
 		if(digit === '' && bracket === '(') {
-			console.log('YES INSERT OPEN BRACKET');
-
 			query.innerHTML += "(";
 			values += "(";
-
-			console.log('AFTER',{
-				digit,
-				digits,
-				value,
-				values,
-				operator,
-				answer,
-				query: query.innerHTML,
-				ans: ans.innerHTML,
-			});
 		}
 
-		if(digit !== '' && bracket === ')') {
-			console.log('YES INSERT CLOSE BRACKET');
-
+		if(digit !== '' && values.includes('(') && bracket === ')') {
 			query.innerHTML += ")";
 			values += ")";
-
-			console.log('AFTER',{
-				digit,
-				digits,
-				value,
-				values,
-				operator,
-				answer,
-				query: query.innerHTML,
-				ans: ans.innerHTML,
-			});
 		}
-		
-		// if(digit === '' && bracket === ')') {
-		// 	console.log('YES INSERT CLOSING BRACKET');
-		// }
 	}
 
 
