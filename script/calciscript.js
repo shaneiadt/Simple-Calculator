@@ -29,7 +29,7 @@
 			// Currently (, ) and ⌫ (&#9003;) are disabled
 			case '(':
 			case ')':
-			case '⌫': break;
+			case '⌫': goBack();
 
 			// All other values enter the doMath function
 			default: doMath(value); break;
@@ -84,7 +84,7 @@
 				value = '÷';
 			}
 			values=values+value;
-			query.innerHTML=values+' ';
+			query.innerHTML=values;
 		}
 		if (value=='=')
 		{
@@ -116,6 +116,20 @@
 		operator='';
 		query.innerHTML='';
 		ans.innerHTML='';
+	}
+
+	function goBack()
+	{
+		if(typeof digit !== 'string') {
+			value = '';
+			emptybar();
+			return;
+		}
+
+		digit = digit.substr(0, digit.length - 1);
+		value = '';
+		query.innerHTML = query.innerHTML.substr(0, query.innerHTML.length - 1);
+		values = query.innerHTML;
 	}
 
 
