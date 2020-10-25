@@ -26,7 +26,7 @@
 			// Empty the bar if C is pressed
 			case 'C': emptybar(); break;
 
-			// Currently (, ) and ⌫ (&#9003;) are disabled
+			// Currently ( and ) are disabled
 			case '(':
 			case ')':
 			case '⌫': goBack();
